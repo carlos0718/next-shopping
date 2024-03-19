@@ -6,7 +6,6 @@ import Typography from "@mui/material/Typography";
 import {Button, CardActionArea, CardActions} from "@mui/material";
 
 const CardTempate = ({products}) => {
-	console.log("products>> ", products);
 	const {id, title, description, image, price, category} = products;
 	return (
 		<div className='m-5'>

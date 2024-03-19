@@ -1,26 +1,21 @@
-"use client";
-import React, {useState, useEffect} from "react";
+import React from "react";
+import {Grid} from "@mui/material";
 import {getProducts} from "@/app/lib/api";
 import CardTempate from "./cardTemplate";
 
-const Cards = () => {
-	const [products, setProducts] = useState([]);
-
-	const fetchProducts = async () => {
-		try {
-			const data = await getProducts();
-			setProducts(data);
-		} catch (error) {
-			console.log(error.message);
-		}
-	};
-
-	useEffect(() => {
-		fetchProducts();
-	}, []);
-	return products.map((p) => {
-		return <CardTempate key={p.id} products={p} />;
-	});
+const Cards = async () => {
+	const fetchProducts = await getProducts();
+	return (
+		<Grid container spacing={{xs: 2, md: 4}} columns={{xs: 4, sm: 8, md: 12}}>
+			{fetchProducts.map((p) => {
+				return (
+					<Grid item xs={2} sm={4} md={4} key={p.id}>
+						<CardTempate products={p} />
+					</Grid>
+				);
+			})}
+		</Grid>
+	);
 };
 
 export default Cards;
