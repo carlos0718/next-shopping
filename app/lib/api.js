@@ -14,3 +14,13 @@ export const getProducts = async () => {
 		throw new Error(error);
 	}
 };
+
+export const getCategories = async () => {
+	try {
+		const response = await fetch(API_CATEGORIES);
+		const data = await response.json();
+		return data;
+	} catch (error) {
+		throw new Error(error);
+	}
+};
