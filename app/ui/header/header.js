@@ -4,10 +4,13 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import AdbIcon from "@mui/icons-material/Adb";
-import RenderCategoriesItems from "./categories/renderCategoriesItems";
 import RenderMenu from "./menu/menu";
+import Categories from "./categories/categoryItem";
+import {getCategories} from "@/app/lib/api";
+import RenderCategoriesItems from "./categories/renderCategoriesItems";
 
-function NavBar() {
+async function NavBar() {
+	const categories = await getCategories();
 	return (
 		<AppBar position='static'>
 			<Container maxWidth='xl'>
@@ -31,7 +34,7 @@ function NavBar() {
 						LOGO
 					</Typography>
 					{/* render categories page */}
-					<RenderCategoriesItems />
+					<Categories xs='flex' md='none' categories={categories} />
 					<AdbIcon sx={{display: {xs: "flex", md: "none"}, mr: 1}} />
 					<Typography
 						variant='h5'
@@ -51,6 +54,7 @@ function NavBar() {
 					>
 						LOGO
 					</Typography>
+					<Categories xs='none' md='flex' categories={categories} />
 					{/* box render menu */}
 					<RenderMenu />
 				</Toolbar>
