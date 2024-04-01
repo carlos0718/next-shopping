@@ -1,15 +1,18 @@
-import "./globals.css";
-import Cards from "./ui/renderCards/cards";
+import Cards from "./ui/renderCards/card";
+import {Container, Grid} from "@mui/material";
+import {getProducts} from "@/app/lib/api";
 
-export default function Home() {
+export default async function Home() {
+	const fetchProducts = await getProducts();
 	return (
 		<>
-			<main className='container m-auto p-10'>
-				<div className='mb-5'>
-					<input type='text' placeholder='Search' className='border-2 border-gray-300 p-2 rounded-md' />
-				</div>
-				<Cards />
-			</main>
+			<Container>
+				<Grid container spacing={{xs: 2, md: 3}} columns={{xs: 4, sm: 8, md: 12}}>
+					{fetchProducts.map((product) => (
+						<Cards product={product} key={product.id} />
+					))}
+				</Grid>
+			</Container>
 		</>
 	);
 }

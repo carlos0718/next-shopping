@@ -1,14 +1,13 @@
-import React from "react";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
-import {Button, CardActionArea, CardActions} from "@mui/material";
+import {Button, CardActionArea, CardActions, Grid} from "@mui/material";
 
-const CardTempate = ({products}) => {
-	const {id, title, description, image, price, category} = products;
+const Cards = ({product}) => {
+	const {id, title, description, image, price, category} = product;
 	return (
-		<div className='m-5'>
+		<Grid item xs={2} sm={4} md={4}>
 			<Card sx={{maxWidth: 345}}>
 				<CardActionArea>
 					<CardMedia component='img' height='140' image={image} alt={title} />
@@ -27,8 +26,8 @@ const CardTempate = ({products}) => {
 					</Button>
 				</CardActions>
 			</Card>
-		</div>
+		</Grid>
 	);
 };
 
-export default CardTempate;
+export default Cards;

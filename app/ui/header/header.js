@@ -7,7 +7,6 @@ import AdbIcon from "@mui/icons-material/Adb";
 import RenderMenu from "./menu/menu";
 import Categories from "./categories/categoryItem";
 import {getCategories} from "@/app/lib/api";
-import RenderCategoriesItems from "./categories/renderCategoriesItems";
 
 async function NavBar() {
 	const categories = await getCategories();
@@ -20,7 +19,7 @@ async function NavBar() {
 						variant='h6'
 						noWrap
 						component='a'
-						href='#app-bar-with-responsive-menu'
+						href='/'
 						sx={{
 							mr: 2,
 							display: {xs: "none", md: "flex"},
@@ -31,7 +30,7 @@ async function NavBar() {
 							textDecoration: "none",
 						}}
 					>
-						LOGO
+						Shopping Next
 					</Typography>
 					{/* render categories page */}
 					<Categories xs='flex' md='none' categories={categories} />
@@ -40,7 +39,7 @@ async function NavBar() {
 						variant='h5'
 						noWrap
 						component='a'
-						href='#app-bar-with-responsive-menu'
+						href='/'
 						sx={{
 							mr: 2,
 							display: {xs: "flex", md: "none"},
@@ -52,7 +51,7 @@ async function NavBar() {
 							textDecoration: "none",
 						}}
 					>
-						LOGO
+						Shopping Next
 					</Typography>
 					<Categories xs='none' md='flex' categories={categories} />
 					{/* box render menu */}

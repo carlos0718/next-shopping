@@ -24,3 +24,13 @@ export const getCategories = async () => {
 		throw new Error(error);
 	}
 };
+
+export const getProductsByCategory = async (category) => {
+	try {
+		const response = await fetch(API_PRODUCTS_BY_CATEGORY.replace(":category", category));
+		const data = await response.json();
+		return data;
+	} catch (error) {
+		throw new Error(error);
+	}
+};

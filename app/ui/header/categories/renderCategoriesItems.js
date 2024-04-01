@@ -3,12 +3,13 @@ import Box from "@mui/material/Box";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import Typography from "@mui/material/Typography";
+import Link from "next/link";
 
-const RenderCategoriesItems = async ({closeMenu, categories}) => {
+const RenderCategoriesItems = ({closeMenu, categories}) => {
 	return (
 		<Box sx={{flexGrow: 1, display: {xs: "none", md: "flex"}}}>
 			{categories.map((page) => (
-				<Button key={page} onClick={closeMenu} sx={{my: 2, color: "white", display: "block"}}>
+				<Button key={page} onClick={closeMenu} sx={{my: 2, color: "white", display: "block"}} href={`/category/${page}`}>
 					{page}
 				</Button>
 			))}
@@ -40,9 +41,11 @@ export const RenderCategoriasItemsResponsive = ({closeMenu, anchorElNav, categor
 				}}
 			>
 				{categories.map((page) => (
-					<MenuItem key={page} onClick={closeMenu}>
-						<Typography textAlign='center'>{page}</Typography>
-					</MenuItem>
+					<Link key={page} href={`/category/${page}`}>
+						<MenuItem key={page} onClick={closeMenu}>
+							<Typography textAlign='center'>{page}</Typography>
+						</MenuItem>
+					</Link>
 				))}
 			</Menu>
 		</>
