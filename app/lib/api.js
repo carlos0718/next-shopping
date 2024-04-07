@@ -9,7 +9,11 @@ export const getProducts = async () => {
 	try {
 		const response = await fetch(API_PRODUCTS);
 		const data = await response.json();
-		return data;
+		return new Promise((resolve) => {
+			setTimeout(() => {
+				resolve(data);
+			}, 1000);
+		});
 	} catch (error) {
 		throw new Error(error);
 	}
