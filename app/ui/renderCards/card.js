@@ -5,9 +5,10 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import {Button, CardActionArea, CardActions, Grid, Skeleton} from "@mui/material";
+import Link from "next/link";
 
 const Cards = ({product}) => {
-	const {title, description, image} = product || {};
+	const {id, title, image} = product || {};
 	const [loading, setLoading] = React.useState(false);
 
 	React.useEffect(() => {
@@ -37,9 +38,11 @@ const Cards = ({product}) => {
 					</CardContent>
 				</CardActionArea>
 				<CardActions>
-					<Button size='small' color='primary'>
-						View Detail
-					</Button>
+					<Link href={`/product/${id}`}>
+						<Button size='small' color='primary'>
+							View Detail
+						</Button>
+					</Link>
 				</CardActions>
 			</Card>
 		</Grid>

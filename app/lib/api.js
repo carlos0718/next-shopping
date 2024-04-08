@@ -38,3 +38,13 @@ export const getProductsByCategory = async (category) => {
 		throw new Error(error);
 	}
 };
+
+export const getProductById = async (id) => {
+	try {
+		const response = await fetch(API_PRODUCT_BY_ID.replace(":id", id));
+		const data = await response.json();
+		return data;
+	} catch (error) {
+		throw new Error(error);
+	}
+};
