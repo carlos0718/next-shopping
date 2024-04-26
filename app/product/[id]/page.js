@@ -8,6 +8,7 @@ import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import ButtonCustom from "@/app/ui/components/buttonCustom";
 import {getProductById} from "@/app/lib/api";
+import ButtonAddToCart from "./../../ui/components/buttonAddToCart";
 
 const ProductDetail = async ({params}) => {
 	const {id} = params;
@@ -41,9 +42,7 @@ const ProductDetail = async ({params}) => {
 							</Button>
 						</Box>
 						<Box sx={{display: "flex", justifyContent: "center"}}>
-							<ButtonCustom variant='contained' size='large' fullWidth>
-								<Typography variant='h6'>Add to cart</Typography>
-							</ButtonCustom>
+							<ButtonAddToCart product={product} />
 						</Box>
 					</Grid>
 					<Grid item xs={12}>

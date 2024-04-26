@@ -7,9 +7,13 @@ import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import Tooltip from "@mui/material/Tooltip";
 import Typography from "@mui/material/Typography";
+import Link from "next/link";
 
 const RenderMenu = () => {
-	const settings = ["Logout"];
+	const settings = [
+		{link: "", name: "Logout"},
+		{link: "../../../cart", name: "Carrito"},
+	];
 	const [anchorElUser, setAnchorElUser] = React.useState(null);
 
 	const handleOpenUserMenu = (event) => {
@@ -44,9 +48,11 @@ const RenderMenu = () => {
 					onClose={handleCloseUserMenu}
 				>
 					{settings.map((setting) => (
-						<MenuItem key={setting} onClick={handleCloseUserMenu}>
-							<Typography textAlign='center'>{setting}</Typography>
-						</MenuItem>
+						<Link href={setting.link}>
+							<MenuItem key={setting} onClick={handleCloseUserMenu}>
+								<Typography textAlign='center'>{setting.name}</Typography>
+							</MenuItem>
+						</Link>
 					))}
 				</Menu>
 			</Box>

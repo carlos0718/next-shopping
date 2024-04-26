@@ -9,9 +9,11 @@ const RenderCategoriesItems = ({closeMenu, categories}) => {
 	return (
 		<Box sx={{flexGrow: 1, display: {xs: "none", md: "flex"}}}>
 			{categories.map((page) => (
-				<Button key={page} onClick={closeMenu} sx={{my: 2, color: "white", display: "block"}} href={`/category/${page}`}>
-					{page}
-				</Button>
+				<Link href={`/category/${page}`} key={page}>
+					<Button key={page} onClick={closeMenu} sx={{my: 2, color: "white", display: "block"}}>
+						{page}
+					</Button>
+				</Link>
 			))}
 		</Box>
 	);
@@ -40,8 +42,8 @@ export const RenderCategoriasItemsResponsive = ({closeMenu, anchorElNav, categor
 					display: {xs: "block", md: "none"},
 				}}
 			>
-				{categories.map((page) => (
-					<Link key={page} href={`/category/${page}`}>
+				{categories.map((page, i) => (
+					<Link key={i} href={`/category/${page}`}>
 						<MenuItem key={page} onClick={closeMenu}>
 							<Typography textAlign='center'>{page}</Typography>
 						</MenuItem>
