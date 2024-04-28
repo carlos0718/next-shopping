@@ -48,8 +48,8 @@ const RenderMenu = () => {
 					onClose={handleCloseUserMenu}
 				>
 					{settings.map((setting) => (
-						<Link href={setting.link}>
-							<MenuItem key={setting} onClick={handleCloseUserMenu}>
+						<Link href={setting.link} key={setting.name}>
+							<MenuItem key={setting.name} onClick={handleCloseUserMenu}>
 								<Typography textAlign='center'>{setting.name}</Typography>
 							</MenuItem>
 						</Link>

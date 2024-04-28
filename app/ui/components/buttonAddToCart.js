@@ -2,14 +2,21 @@
 import React from "react";
 import {Typography} from "@mui/material";
 import ButtonCustom from "./buttonCustom";
-import {useStateStore} from "../../../store/useStore";
+import {useStateStore} from "@/app/store/useCartStore";
+import useQuantityStore from "@/app/store/useQuantityStore";
 
 const ButtonAddToCart = ({product}) => {
-	const {updateCart, cart} = useStateStore();
-	const handleClick = () => updateCart(product);
-	React.useEffect(() => {
-		console.log(useStateStore.getState());
-	}, [cart]);
+	const {updateCart} = useStateStore();
+	const {quantity} = useQuantityStore();
+
+	const handleClick = () => {
+		let addProduct = {
+			...product,
+			quantity,
+		};
+		updateCart(addProduct);
+	};
+
 	return (
 		<>
 			<ButtonCustom variant='contained' size='large' fullWidth onClick={handleClick}>

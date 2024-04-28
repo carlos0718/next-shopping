@@ -3,7 +3,7 @@ import {persist} from "zustand/middleware";
 
 export const useStateStore = create(
 	persist(
-		(set, get) => ({
+		(set) => ({
 			cart: [],
 			updateCart: (product) => set((state) => ({cart: [...state.cart, product]})),
 		}),

@@ -2,13 +2,12 @@ import React from "react";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import CardMedia from "@mui/material/CardMedia";
-import {Box, Button} from "@mui/material";
+import {Box} from "@mui/material";
 import {Grid} from "@mui/material";
-import AddIcon from "@mui/icons-material/Add";
-import RemoveIcon from "@mui/icons-material/Remove";
 import ButtonCustom from "@/app/ui/components/buttonCustom";
 import {getProductById} from "@/app/lib/api";
 import ButtonAddToCart from "./../../ui/components/buttonAddToCart";
+import ButtonCount from "./../../ui/components/buttonCount";
 
 const ProductDetail = async ({params}) => {
 	const {id} = params;
@@ -30,17 +29,7 @@ const ProductDetail = async ({params}) => {
 								<Typography variant='h6'>${product.price}</Typography>
 							</ButtonCustom>
 						</Box>
-						<Box sx={{display: "flex", justifyContent: "center", margin: 20}}>
-							<Button variant='outlined'>
-								<RemoveIcon />
-							</Button>
-							<Box sx={{marginX: 4}}>
-								<Typography variant='h6'>1</Typography>
-							</Box>
-							<Button variant='outlined'>
-								<AddIcon />
-							</Button>
-						</Box>
+						<ButtonCount product={product} />
 						<Box sx={{display: "flex", justifyContent: "center"}}>
 							<ButtonAddToCart product={product} />
 						</Box>

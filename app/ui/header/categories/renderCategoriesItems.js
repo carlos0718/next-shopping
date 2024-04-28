@@ -43,7 +43,7 @@ export const RenderCategoriasItemsResponsive = ({closeMenu, anchorElNav, categor
 				}}
 			>
 				{categories.map((page, i) => (
-					<Link key={i} href={`/category/${page}`}>
+					<Link key={page} href={`/category/${page}`}>
 						<MenuItem key={page} onClick={closeMenu}>
 							<Typography textAlign='center'>{page}</Typography>
 						</MenuItem>
