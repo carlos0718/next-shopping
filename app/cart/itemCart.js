@@ -22,7 +22,7 @@ export default function ItemCart({image, title, price, category, quantity}) {
 				margin: "auto",
 				flexGrow: 1,
 				backgroundColor: (theme) => (theme.palette.mode === "dark" ? "#1A2027" : "#fff"),
-				boxShadow: (theme) => `0 3px 5px 2px ${theme.palette.primary.main}`,
+				boxShadow: (theme) => `0px -1px 1px 2px ${theme.palette.primary.main}`,
 			}}
 		>
 			<Grid container spacing={2}>
@@ -38,27 +38,14 @@ export default function ItemCart({image, title, price, category, quantity}) {
 								{title}
 							</Typography>
 							<Chip label={category} color='primary' />
-							<Typography variant='body2' color='text.secondary'>
+						</Grid>
+						<Grid item>
+							<Typography variant='body2' color='text.secondary' sx={{marginLeft: "5px", fontWeight: 700}}>
 								Quatities: {quantity}
 							</Typography>
 						</Grid>
 						<Grid item>
 							<Grid container spacing={1}>
-								<Grid item xs={3}>
-									<Typography
-										sx={{
-											maxWidth: "5rem",
-											cursor: "pointer",
-											"&:hover": {backgroundColor: "#f65050", color: "#fff"},
-											textAlign: "center",
-											borderRadius: "5px",
-											padding: "5px",
-										}}
-										variant='body2'
-									>
-										Remove
-									</Typography>
-								</Grid>
 								<Grid item xs={3}>
 									<Typography
 										sx={{
@@ -74,12 +61,28 @@ export default function ItemCart({image, title, price, category, quantity}) {
 										Detail
 									</Typography>
 								</Grid>
+								<Grid item xs={3}>
+									<Typography
+										sx={{
+											maxWidth: "5rem",
+											cursor: "pointer",
+											"&:hover": {backgroundColor: "#f65050", color: "#fff"},
+											textAlign: "center",
+											borderRadius: "5px",
+											padding: "5px",
+										}}
+										variant='body2'
+									>
+										Remove
+									</Typography>
+								</Grid>
 							</Grid>
 						</Grid>
 					</Grid>
 					<Grid item>
-						<Typography variant='subtitle1' component='div'>
-							${price}
+						Unit Price
+						<Typography variant='h6' component='div'>
+							${price * 1000}
 						</Typography>
 					</Grid>
 				</Grid>
