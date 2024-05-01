@@ -15,7 +15,15 @@ const ItemListCart = () => {
 	}, []);
 
 	return cartState.map((item) => (
-		<ItemCart key={item.id} image={item.image} title={item.title} price={item.price} category={item.category} quantity={item.quantity} />
+		<ItemCart
+			key={item.id}
+			image={item.image}
+			title={item.title}
+			price={item.price}
+			category={item.category}
+			quantity={item.quantity}
+			id={item.id}
+		/>
 	));
 };
 

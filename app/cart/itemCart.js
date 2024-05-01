@@ -1,5 +1,6 @@
 "use client";
 import * as React from "react";
+import Link from "next/link";
 import {styled} from "@mui/material/styles";
 import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
@@ -14,7 +15,7 @@ const Img = styled("img")({
 	maxHeight: "100%",
 });
 
-export default function ItemCart({image, title, price, category, quantity}) {
+export default function ItemCart({image, title, price, category, quantity, id}) {
 	return (
 		<Paper
 			sx={{
@@ -47,19 +48,21 @@ export default function ItemCart({image, title, price, category, quantity}) {
 						<Grid item>
 							<Grid container spacing={1}>
 								<Grid item xs={3}>
-									<Typography
-										sx={{
-											cursor: "pointer",
-											"&:hover": {backgroundColor: "#1976d2", color: "#fff"},
-											maxWidth: "5rem",
-											textAlign: "center",
-											borderRadius: "5px",
-											padding: "5px",
-										}}
-										variant='body2'
-									>
-										Detail
-									</Typography>
+									<Link href={`../product/${id}`}>
+										<Typography
+											sx={{
+												cursor: "pointer",
+												"&:hover": {backgroundColor: "#1976d2", color: "#fff"},
+												maxWidth: "5rem",
+												textAlign: "center",
+												borderRadius: "5px",
+												padding: "5px",
+											}}
+											variant='body2'
+										>
+											Detail
+										</Typography>
+									</Link>
 								</Grid>
 								<Grid item xs={3}>
 									<Typography
