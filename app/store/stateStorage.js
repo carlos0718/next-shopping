@@ -10,7 +10,7 @@ const stateStorage = {
 	},
 	// Set the state in the storage
 	set: (key, value) => {
-		window.localStorage.setItem(key, JSON.stringify(value));
+		if (typeof window !== "undefined") window.localStorage.setItem(key, JSON.stringify(value));
 	},
 	// Remove the state from the storage
 	remove: (key) => {

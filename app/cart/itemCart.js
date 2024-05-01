@@ -22,6 +22,7 @@ export default function ItemCart({image, title, price, category, quantity}) {
 				margin: "auto",
 				flexGrow: 1,
 				backgroundColor: (theme) => (theme.palette.mode === "dark" ? "#1A2027" : "#fff"),
+				boxShadow: (theme) => `0 3px 5px 2px ${theme.palette.primary.main}`,
 			}}
 		>
 			<Grid container spacing={2}>
@@ -42,9 +43,38 @@ export default function ItemCart({image, title, price, category, quantity}) {
 							</Typography>
 						</Grid>
 						<Grid item>
-							<Typography sx={{cursor: "pointer"}} variant='body2'>
-								Remove
-							</Typography>
+							<Grid container spacing={1}>
+								<Grid item xs={3}>
+									<Typography
+										sx={{
+											maxWidth: "5rem",
+											cursor: "pointer",
+											"&:hover": {backgroundColor: "#f65050", color: "#fff"},
+											textAlign: "center",
+											borderRadius: "5px",
+											padding: "5px",
+										}}
+										variant='body2'
+									>
+										Remove
+									</Typography>
+								</Grid>
+								<Grid item xs={3}>
+									<Typography
+										sx={{
+											cursor: "pointer",
+											"&:hover": {backgroundColor: "#1976d2", color: "#fff"},
+											maxWidth: "5rem",
+											textAlign: "center",
+											borderRadius: "5px",
+											padding: "5px",
+										}}
+										variant='body2'
+									>
+										Detail
+									</Typography>
+								</Grid>
+							</Grid>
 						</Grid>
 					</Grid>
 					<Grid item>
