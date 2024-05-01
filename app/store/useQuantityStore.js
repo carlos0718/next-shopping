@@ -1,10 +1,10 @@
 import {create} from "zustand";
 
 const useQuantityStore = create((set) => ({
-	quantity: 1,
-	increment: () => set((state) => ({quantity: state.quantity + 1})),
-	decrement: () => set((state) => ({quantity: state.quantity - 1})),
-	reset: () => set({quantity: 1}),
+	quantities: {},
+	increment: (id) => set((state) => ({quantities: {...state.quantities, [id]: (state.quantities[id] || 0) + 1}})),
+	decrement: (id) => set((state) => ({quantities: {...state.quantities, [id]: state.quantities[id] - 1}})),
+	reset: () => set({quantities: {}}),
 }));
 
 export default useQuantityStore;

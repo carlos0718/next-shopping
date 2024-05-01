@@ -7,12 +7,12 @@ import useQuantityStore from "@/app/store/useQuantityStore";
 
 const ButtonAddToCart = ({product}) => {
 	const {updateCart} = useStateStore();
-	const {quantity} = useQuantityStore();
+	const {quantities} = useQuantityStore();
 
 	const handleClick = () => {
 		let addProduct = {
 			...product,
-			quantity,
+			quantity: quantities[product.id] || 1,
 		};
 		updateCart(addProduct);
 	};
