@@ -8,15 +8,13 @@ const stateStorage = {
 		}
 		return null;
 	},
-
 	// Set the state in the storage
 	set: (key, value) => {
-		localStorage.setItem(key, JSON.stringify(value));
+		window.localStorage.setItem(key, JSON.stringify(value));
 	},
-
 	// Remove the state from the storage
 	remove: (key) => {
-		localStorage.removeItem(key);
+		window.localStorage.removeItem(key);
 	},
 };
 

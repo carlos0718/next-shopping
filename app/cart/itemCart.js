@@ -5,6 +5,7 @@ import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
 import ButtonBase from "@mui/material/ButtonBase";
+import {Chip} from "@mui/material";
 
 const Img = styled("img")({
 	margin: "auto",
@@ -13,7 +14,7 @@ const Img = styled("img")({
 	maxHeight: "100%",
 });
 
-export default function ItemCart({image, title, price, category}) {
+export default function ItemCart({image, title, price, category, quantity}) {
 	return (
 		<Paper
 			sx={{
@@ -32,14 +33,12 @@ export default function ItemCart({image, title, price, category}) {
 				<Grid item xs={12} sm container>
 					<Grid item xs container direction='column' spacing={2}>
 						<Grid item xs>
-							<Typography gutterBottom variant='subtitle1' component='div'>
+							<Typography gutterBottom variant='subtitle1' component='div' sx={{fontWeight: "bold"}}>
 								{title}
 							</Typography>
-							<Typography variant='body2' gutterBottom>
-								Full resolution 1920x1080 • JPEG
-							</Typography>
+							<Chip label={category} color='primary' />
 							<Typography variant='body2' color='text.secondary'>
-								{category}
+								Quatities: {quantity}
 							</Typography>
 						</Grid>
 						<Grid item>
