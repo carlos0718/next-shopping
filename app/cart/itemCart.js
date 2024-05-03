@@ -6,7 +6,8 @@ import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
 import ButtonBase from "@mui/material/ButtonBase";
-import {Chip} from "@mui/material";
+import {Button, Chip} from "@mui/material";
+import stateStorage from "../store/stateStorage";
 
 const Img = styled("img")({
 	margin: "auto",
@@ -15,7 +16,7 @@ const Img = styled("img")({
 	maxHeight: "100%",
 });
 
-export default function ItemCart({image, title, price, category, quantity, id}) {
+export default function ItemCart({image, title, price, category, quantity, id, onRemove}) {
 	return (
 		<Paper
 			sx={{
@@ -23,7 +24,6 @@ export default function ItemCart({image, title, price, category, quantity, id}) 
 				margin: "auto",
 				flexGrow: 1,
 				backgroundColor: (theme) => (theme.palette.mode === "dark" ? "#1A2027" : "#fff"),
-				boxShadow: (theme) => `0px -1px 1px 2px ${theme.palette.primary.main}`,
 			}}
 		>
 			<Grid container spacing={2}>
@@ -49,35 +49,39 @@ export default function ItemCart({image, title, price, category, quantity, id}) 
 							<Grid container spacing={1}>
 								<Grid item xs={3}>
 									<Link href={`../product/${id}`}>
+										<Button>
+											<Typography
+												sx={{
+													cursor: "pointer",
+													"&:hover": {backgroundColor: "#1976d2", color: "#fff"},
+													maxWidth: "5rem",
+													textAlign: "center",
+													borderRadius: "5px",
+													padding: "5px",
+												}}
+												variant='body2'
+											>
+												Detail
+											</Typography>
+										</Button>
+									</Link>
+								</Grid>
+								<Grid item xs={3}>
+									<Button onClick={() => onRemove(id)}>
 										<Typography
 											sx={{
-												cursor: "pointer",
-												"&:hover": {backgroundColor: "#1976d2", color: "#fff"},
 												maxWidth: "5rem",
+												cursor: "pointer",
+												"&:hover": {backgroundColor: "#f65050", color: "#fff"},
 												textAlign: "center",
 												borderRadius: "5px",
 												padding: "5px",
 											}}
 											variant='body2'
 										>
-											Detail
+											Remove
 										</Typography>
-									</Link>
-								</Grid>
-								<Grid item xs={3}>
-									<Typography
-										sx={{
-											maxWidth: "5rem",
-											cursor: "pointer",
-											"&:hover": {backgroundColor: "#f65050", color: "#fff"},
-											textAlign: "center",
-											borderRadius: "5px",
-											padding: "5px",
-										}}
-										variant='body2'
-									>
-										Remove
-									</Typography>
+									</Button>
 								</Grid>
 							</Grid>
 						</Grid>

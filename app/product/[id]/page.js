@@ -18,7 +18,7 @@ const ProductDetail = async ({params}) => {
 			<Box sx={{flexGrow: 1, borderRadius: 2, boxShadow: 2, padding: 8, margin: 10}}>
 				<Grid container spacing={2}>
 					<Grid item xs={6}>
-						<CardMedia component='img' src={product.image} alt={product.title} />
+						<CardMedia component='img' src={product.image} alt={product.title} sx={{mixBlendMode: "multiply"}} />
 					</Grid>
 					<Grid item xs={6}>
 						<Box sx={{marginX: 3}}>

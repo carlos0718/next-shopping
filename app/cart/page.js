@@ -14,6 +14,13 @@ const ItemListCart = () => {
 		setCartState(cart);
 	}, []);
 
+	const removeItem = (id) => {
+		const cart = stateStorage.get("cart-storage").state.cart;
+		const newCart = cart.filter((item) => item.id !== id);
+		stateStorage.set("cart-storage", {state: {cart: newCart}});
+		setCartState(newCart);
+	};
+
 	return cartState.map((item) => (
 		<ItemCart
 			key={item.id}
@@ -23,6 +30,7 @@ const ItemListCart = () => {
 			category={item.category}
 			quantity={item.quantity}
 			id={item.id}
+			onRemove={removeItem}
 		/>
 	));
 };

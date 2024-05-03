@@ -30,6 +30,7 @@ const Cards = ({product}) => {
 							maxWidth: "100%",
 							objectFit: "scale-down",
 							margin: "auto",
+							padding: "20px",
 						}}
 					/>
 					<CardContent>
