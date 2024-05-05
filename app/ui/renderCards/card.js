@@ -13,7 +13,10 @@ const Cards = ({product}) => {
 	const [loading, setLoading] = React.useState(false);
 
 	React.useEffect(() => {
-		setLoading(true);
+		const timer = setTimeout(() => {
+			setLoading(true);
+		}, 1000);
+		return () => clearTimeout(timer);
 	}, []);
 
 	return loading ? (

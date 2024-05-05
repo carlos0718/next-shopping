@@ -2,6 +2,7 @@
 import React from "react";
 import ItemCart from "./itemCart";
 import stateStorage from "../store/stateStorage";
+import {Box} from "@mui/material";
 
 const ItemListCart = () => {
 	const NAME_STORAGE = "cart-storage";
@@ -21,18 +22,24 @@ const ItemListCart = () => {
 		setCartState(newCart);
 	};
 
-	return cartState.map((item) => (
-		<ItemCart
-			key={item.id}
-			image={item.image}
-			title={item.title}
-			price={item.price}
-			category={item.category}
-			quantity={item.quantity}
-			id={item.id}
-			onRemove={removeItem}
-		/>
-	));
+	return cartState.length !== 0 ? (
+		cartState.map((item) => (
+			<ItemCart
+				key={item.id}
+				image={item.image}
+				title={item.title}
+				price={item.price}
+				category={item.category}
+				quantity={item.quantity}
+				id={item.id}
+				onRemove={removeItem}
+			/>
+		))
+	) : (
+		<Box sx={{display: "flex", justifyContent: "center", mixBlendMode: "multiply"}}>
+			<img src='/assets/images/empty-cart-illustration.gif' alt='empty-cart' />
+		</Box>
+	);
 };
 
 export default ItemListCart;
