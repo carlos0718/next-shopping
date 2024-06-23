@@ -1,5 +1,5 @@
 "use client";
-import * as React from "react";
+import React, {useEffect} from "react";
 import Link from "next/link";
 import {styled} from "@mui/material/styles";
 import Grid from "@mui/material/Grid";
@@ -7,6 +7,7 @@ import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
 import ButtonBase from "@mui/material/ButtonBase";
 import {Button, Chip} from "@mui/material";
+import useFinalPriceForProduct from "./../store/useStateFinalPriceforProduct";
 
 const Img = styled("img")({
 	margin: "auto",
@@ -16,6 +17,11 @@ const Img = styled("img")({
 });
 
 export default function ItemCart({image, title, price, category, quantity, id, onRemove}) {
+	const {setFinalPriceForProduct} = useFinalPriceForProduct();
+	const finalPrice = price * quantity;
+	React.useEffect(() => {
+		setFinalPriceForProduct(id, finalPrice);
+	}, [finalPrice]);
 	return (
 		<Paper
 			sx={{
