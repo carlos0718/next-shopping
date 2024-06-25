@@ -19,7 +19,7 @@ const ButtonAddToCart = ({product}) => {
 	};
 
 	const handleClick = () => {
-		const addproductCart = {...product, quantity: quantities[product.id]};
+		const addproductCart = {...product, quantity: quantities[product.id] ? quantities[product.id] : (quantities[product.id] = 1)};
 		StateStorage.update(addproductCart);
 		updateCart(addproductCart);
 		setOpen(true);

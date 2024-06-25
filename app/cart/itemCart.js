@@ -1,5 +1,5 @@
 "use client";
-import React, {useEffect} from "react";
+import React from "react";
 import Link from "next/link";
 import {styled} from "@mui/material/styles";
 import Grid from "@mui/material/Grid";
@@ -20,8 +20,9 @@ export default function ItemCart({image, title, price, category, quantity, id, o
 	const {setFinalPriceForProduct} = useFinalPriceForProduct();
 	const finalPrice = price * quantity;
 	React.useEffect(() => {
+		console.log("entra");
 		setFinalPriceForProduct(id, finalPrice);
-	}, [finalPrice]);
+	}, [finalPrice, id]);
 	return (
 		<Paper
 			sx={{
