@@ -36,16 +36,15 @@ class StateStorage {
 	static delete(index) {
 		const {state} = this.get();
 		if (state && state.cart) {
-			state.cart.splice(index, 1); // Corrige la eliminación del elemento
-			this.set(state); // Guarda el estado actualizado
+			state.cart.splice(index, 1);
+			this.set(state);
 		}
-		console.log(state.cart);
 	}
 
 	static update(product) {
 		const {state} = this.get() || {cart: []};
 		const index = state.cart.findIndex((item) => item.id === product.id);
-		debugger;
+
 		if (index !== -1) {
 			// Actualiza el producto existente
 			state.cart[index] = {...product};

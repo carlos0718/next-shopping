@@ -5,9 +5,11 @@ import ButtonCustom from "./buttonCustom";
 import {useStateStore} from "@/app/store/useCartStore";
 import useQuantityStore from "@/app/store/useQuantityStore";
 import StateStorage from "@/app/store/stateStorage";
+import useFinalPriceForProduct from "@/app/store/useStateFinalPriceforProduct";
 
 const ButtonAddToCart = ({product}) => {
-	const {updateCart, cart} = useStateStore();
+	const {updateCart} = useStateStore();
+	const {setFinalPriceForProduct} = useFinalPriceForProduct();
 	const {quantities} = useQuantityStore();
 	const [open, setOpen] = React.useState(false);
 
@@ -22,7 +24,15 @@ const ButtonAddToCart = ({product}) => {
 		const addproductCart = {...product, quantity: quantities[product.id] ? quantities[product.id] : (quantities[product.id] = 1)};
 		StateStorage.update(addproductCart);
 		updateCart(addproductCart);
+		handleFinalPrice(product.id);
 		setOpen(true);
+	};
+
+	const handleFinalPrice = (id) => {
+		const {state} = StateStorage.get();
+		const item = state.cart.find((p) => p.id === id);
+		const finalPrice = item.price * item.quantity;
+		setFinalPriceForProduct(id, finalPrice);
 	};
 
 	return (
