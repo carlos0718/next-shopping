@@ -6,8 +6,8 @@ import {Box} from "@mui/material";
 import {Grid} from "@mui/material";
 import ButtonCustom from "@/app/ui/components/buttonCustom";
 import {getProductById} from "@/app/lib/api";
-import ButtonAddToCart from "./../../ui/components/buttonAddToCart";
-import ButtonCount from "./../../ui/components/buttonCount";
+import ButtonAddToCart from "@/app/ui/components/buttonAddToCart";
+import ButtonCount from "@/app/ui/components/buttonCount";
 
 const ProductDetail = async ({params}) => {
 	const {id} = params;

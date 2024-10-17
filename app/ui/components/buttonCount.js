@@ -3,7 +3,7 @@ import React from "react";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import {Box, Button, Typography} from "@mui/material";
-import useQuantityStore from "./../../store/useQuantityStore";
+import useQuantityStore from "@/app/store/useQuantityStore";
 
 const ButtonCount = ({product}) => {
 	const {id} = product;

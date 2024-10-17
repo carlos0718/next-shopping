@@ -1,6 +1,6 @@
 import {Container, Grid} from "@mui/material";
-import {getProductsByCategory} from "../../lib/api";
-import Cards from "../../ui/renderCards/card";
+import {getProductsByCategory} from "@/app/lib/api";
+import Cards from "@/app/ui/renderCards/card";
 
 const Products = async ({params}) => {
 	const {category} = params;

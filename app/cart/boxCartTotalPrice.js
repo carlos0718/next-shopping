@@ -1,14 +1,17 @@
 import React from "react";
 import {Button, Card, CardActions, CardContent, Typography} from "@mui/material";
-import useFinalPriceForProduct from "../store/useStateFinalPriceforProduct";
+import useFinalPriceForProduct from "@/app/store/useStateFinalPriceforProduct";
+import {usePathname} from "next/navigation";
+import Link from "next/link";
 
 const BoxCartTotalPrice = () => {
+	const pathname = usePathname();
+
 	const {priceFinalForProduct} = useFinalPriceForProduct();
 	const totalPurchase = priceFinalForProduct.reduce((acc, q) => {
 		const value = Object.values(q)[0];
 		return acc + value;
 	}, 0);
-	console.log("totalPurchase", totalPurchase);
 
 	return (
 		<Card sx={{minWidth: 275}}>
@@ -21,12 +24,14 @@ const BoxCartTotalPrice = () => {
 					<br />
 					Subtotal : $ {totalPurchase}
 					<br />
-					<hr style={{border: "1px solid black", margin: "10px 0"}} />
+					{/* <p style={{border: "1px solid black", margin: "10px 0"}}></p> */}
 					TOTAL : $ {totalPurchase}
 				</Typography>
 			</CardContent>
 			<CardActions>
-				<Button size='small'>Finalize purchase</Button>
+				<Link href='../cart/checkout'>
+					<Button size='small'>{pathname == "/cart" ? "Finalize purchase" : ""}</Button>
+				</Link>
 			</CardActions>
 		</Card>
 	);

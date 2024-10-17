@@ -2,7 +2,7 @@
 import React from "react";
 import {Box, Container, Grid, Stack} from "@mui/material";
 import BoxCartTotalPrice from "./boxCartTotalPrice";
-import {useStateStore} from "../store/useCartStore";
+import {useStateStore} from "@/app/store/useCartStore";
 
 const CartLayout = ({children}) => {
 	const [existedItemInCart, setExistedItemInCart] = React.useState(false);

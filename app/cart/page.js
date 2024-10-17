@@ -1,9 +1,9 @@
 "use client";
 import React from "react";
 import ItemCart from "./itemCart";
-import StateStorage from "../store/stateStorage";
+import StateStorage from "@/app/store/stateStorage";
 import {Box} from "@mui/material";
-import {useStateStore} from "../store/useCartStore";
+import {useStateStore} from "@/app/store/useCartStore";
 
 const ItemListCart = () => {
 	const [cartState, setCartState] = React.useState([]);

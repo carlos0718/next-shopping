@@ -37,7 +37,7 @@ const Cards = ({product}) => {
 						}}
 					/>
 					<CardContent>
-						<Typography gutterBottom variant='h5' component='div' sx={{maxHeight: "5em"}}>
+						<Typography gutterBottom variant='h5' component='div' sx={{maxHeight: "5em"}} noWrap>
 							{title}
 						</Typography>
 					</CardContent>
