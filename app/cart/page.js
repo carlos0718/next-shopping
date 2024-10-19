@@ -1,8 +1,9 @@
 "use client";
 import React from "react";
-import ItemCart from "./itemCart";
+import ItemCart from "@/app/cart/itemCart";
 import StateStorage from "@/app/store/stateStorage";
 import {Box} from "@mui/material";
+import Image from "next/image";
 import {useStateStore} from "@/app/store/useCartStore";
 
 const ItemListCart = () => {
@@ -46,7 +47,7 @@ const ItemListCart = () => {
 	) : (
 		<div>
 			<Box sx={{display: "flex", justifyContent: "center", mixBlendMode: "multiply"}}>
-				<img src='/assets/images/empty-cart-illustration.gif' alt='empty-cart' />
+				<Image src='/assets/images/empty-cart-illustration.gif' alt='empty-cart' width={500} height={500} />
 			</Box>
 		</div>
 	);

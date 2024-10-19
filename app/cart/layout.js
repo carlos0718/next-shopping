@@ -1,8 +1,8 @@
 "use client";
 import React from "react";
 import {Box, Container, Grid, Stack} from "@mui/material";
-import BoxCartTotalPrice from "./boxCartTotalPrice";
 import {useStateStore} from "@/app/store/useCartStore";
+import BoxCartTotalPrice from "@/app/cart/boxCartTotalPrice";
 
 const CartLayout = ({children}) => {
 	const [existedItemInCart, setExistedItemInCart] = React.useState(false);

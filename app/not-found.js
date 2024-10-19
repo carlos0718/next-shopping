@@ -1,5 +1,5 @@
-import {Box, Button, Container, Typography} from "@mui/material";
-import Link from "next/link";
+import {Box, Button, Typography} from '@mui/material';
+import Link from 'next/link';
 
 const NotFound = () => {
 	return (

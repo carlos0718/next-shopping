@@ -16,7 +16,7 @@ const BoxCartTotalPrice = () => {
 	return (
 		<Card sx={{minWidth: 275}}>
 			<CardContent>
-				<Typography sx={{fontWeight: 700}} variant='h6' gutterBottom>
+				<Typography sx={{fontWeight: 700}} variant='h6' gutterBottom color='#527ba5'>
 					Total purchase
 				</Typography>
 				<Typography variant='body2'>

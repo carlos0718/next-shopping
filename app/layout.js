@@ -1,27 +1,28 @@
-import "./globals.css";
-import {Box, Container} from "@mui/material";
-import NavBar from "./ui/header/header";
-import Footer from "./ui/footer/page";
+import './globals.css';
+
+import Footer from '@/app/ui/footer/page';
+import NavBar from '@/app/ui/header/header';
+import {Box, Container} from '@mui/material';
 
 export const metadata = {
-	title: "Ecommerce",
-	description: "Ecommerce website using Nextjs and MUI",
+	title: 'Ecommerce',
+	description: 'Ecommerce website using Nextjs and MUI'
 };
 
 export default function RootLayout({children}) {
 	return (
 		<html lang='en'>
-			<body style={{backgroundColor: "#ebebeb"}}>
+			<body style={{backgroundColor: '#ebebeb'}}>
 				<Container
 					disableGutters
 					maxWidth={false}
 					sx={{
-						display: "flex",
-						flexDirection: "column",
-						minHeight: "100vh",
+						display: 'flex',
+						flexDirection: 'column',
+						minHeight: '100vh'
 					}}
 				>
-					<Box sx={{marginBottom: "100px", flex: "1 0 auto", marginBottom: "100px"}}>
+					<Box sx={{marginBottom: '100px', flex: '1 0 auto', marginBottom: '100px'}}>
 						<NavBar />
 						<Container>
 							<div className='m-20'>

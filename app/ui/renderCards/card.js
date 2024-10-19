@@ -1,12 +1,14 @@
-"use client";
-import React from "react";
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
-import Typography from "@mui/material/Typography";
-import {Button, CardActionArea, CardActions, Grid} from "@mui/material";
-import Link from "next/link";
-import Loading from "./loading";
+'use client';
+
+import ButtonCustom from '@/app/ui/components/buttonCustom';
+import Loading from '@/app/ui/renderCards/loading';
+import {CardActionArea, CardActions, Grid} from '@mui/material';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Typography from '@mui/material/Typography';
+import Link from 'next/link';
+import React from 'react';
 
 const Cards = ({product}) => {
 	const {id, title, image} = product || {};
@@ -21,32 +23,32 @@ const Cards = ({product}) => {
 
 	return loading ? (
 		<Grid item xs={2} sm={4} md={4}>
-			<Card sx={{height: "30em"}}>
+			<Card sx={{height: '27em'}}>
 				<CardActionArea>
 					<CardMedia
 						component='img'
 						src={image}
 						alt={title}
 						sx={{
-							height: "290px",
-							width: "auto",
-							maxWidth: "100%",
-							objectFit: "scale-down",
-							margin: "auto",
-							padding: "20px",
+							height: '290px',
+							width: 'auto',
+							maxWidth: '100%',
+							objectFit: 'scale-down',
+							margin: 'auto',
+							padding: '20px'
 						}}
 					/>
 					<CardContent>
-						<Typography gutterBottom variant='h5' component='div' sx={{maxHeight: "5em"}} noWrap>
+						<Typography gutterBottom variant='h6' align='center' color='#527ba5' component='div' sx={{maxHeight: '3em'}} noWrap>
 							{title}
 						</Typography>
 					</CardContent>
 				</CardActionArea>
 				<CardActions>
 					<Link href={`/product/${id}`}>
-						<Button size='small' color='primary'>
+						<ButtonCustom size='small' color='primary' sx={{padding: '8px 16px', marginLeft: '10px'}}>
 							View Detail
-						</Button>
+						</ButtonCustom>
 					</Link>
 				</CardActions>
 			</Card>

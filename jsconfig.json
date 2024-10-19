@@ -19,7 +19,10 @@
 		],
 		"baseUrl": ".",
 		"paths": {
-			"@/*": ["./*"]
+			"@/*": ["./*"],
+			"@/app/*": ["app/*"],
+			"@/components/*": ["app/ui/components/*"]
 		}
-	}
+	},
+	"include": ["app/**/*", "pages/**/*"]
 }

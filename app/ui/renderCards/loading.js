@@ -1,5 +1,5 @@
+import {Card, CardActionArea, CardActions, CardContent, Grid, Skeleton} from "@mui/material";
 import React from "react";
-import {Card, CardContent, CardActionArea, CardActions, Grid, Skeleton} from "@mui/material";
 
 const Loading = () => {
 	return (

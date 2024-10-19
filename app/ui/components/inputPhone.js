@@ -1,12 +1,14 @@
 import React from "react";
 import {MuiTelInput} from "mui-tel-input";
 
-const InputPhone = ({size}) => {
-	const [value, setValue] = React.useState("");
+const InputPhone = React.forwardRef(({value, onChange, size, sx, ...props}, ref) => {
 	const handleChange = (newValue) => {
-		setValue(newValue);
+		onChange(newValue);
 	};
-	return <MuiTelInput defaultCountry='AR' value={value} onChange={handleChange} size={size} />;
-};
+
+	return <MuiTelInput defaultCountry='AR' value={value} sx={sx} onChange={handleChange} size={size} inputRef={ref} {...props} />;
+});
+
+InputPhone.displayName = "InputPhone";
 
 export default InputPhone;

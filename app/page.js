@@ -1,6 +1,6 @@
-import Cards from "./ui/renderCards/card";
-import {Container, Grid, StyledEngineProvider} from "@mui/material";
-import {getProducts} from "@/app/lib/api";
+import {getProducts} from '@/app/lib/api';
+import Cards from '@/app/ui/renderCards/card';
+import {Container, Grid, StyledEngineProvider} from '@mui/material';
 
 export default async function Home() {
 	const fetchProducts = await getProducts();
