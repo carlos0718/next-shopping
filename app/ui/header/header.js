@@ -1,53 +1,63 @@
-import AppBar from "@mui/material/AppBar";
-import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
-import Container from "@mui/material/Container";
-import AdbIcon from "@mui/icons-material/Adb";
-import RenderMenu from "./menu/menu";
-import Categories from "./categories/categoryItem";
-import {getCategories} from "@/app/lib/api";
-import Link from "next/link";
+'use client';
 
-async function NavBar() {
-	const categories = await getCategories();
+import {getCategories} from '@/app/lib/api';
+import AdbIcon from '@mui/icons-material/Adb';
+import AppBar from '@mui/material/AppBar';
+import Container from '@mui/material/Container';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+import Link from 'next/link';
+import React from 'react';
+
+import Categories from './categories/categoryItem';
+import RenderMenu from './menu/menu';
+
+const NavBar = React.forwardRef(() => {
+	const [categories, setCategores] = React.useState([]);
+	React.useEffect(() => {
+		getCategories().then((data) => {
+			setCategores(data);
+		});
+	}, []);
+
 	return (
 		<AppBar position='static'>
 			<Container maxWidth='xl'>
 				<Toolbar disableGutters>
-					<AdbIcon sx={{display: {xs: "none", md: "flex"}, mr: 1}} />
-					<Link href={"/"}>
+					<AdbIcon sx={{display: {xs: 'none', md: 'flex'}, mr: 1}} />
+					<Link href={'/'}>
 						<Typography
 							variant='h6'
 							noWrap
 							sx={{
 								mr: 2,
-								display: {xs: "none", md: "flex"},
-								fontFamily: "monospace",
+								display: {xs: 'none', md: 'flex'},
+								fontFamily: 'monospace',
 								fontWeight: 700,
-								letterSpacing: ".3rem",
-								color: "inherit",
-								textDecoration: "none",
+								letterSpacing: '.3rem',
+								color: 'inherit',
+								textDecoration: 'none'
 							}}
 						>
 							Shopping Next
 						</Typography>
 					</Link>
 					{/* render categories page */}
-					<Categories xs='flex' md='none' categories={categories} />
-					<AdbIcon sx={{display: {xs: "flex", md: "none"}, mr: 1}} />
-					<Link href={"/"}>
+					{/* <Categories xs='flex' md='none' categories={categories} /> */}
+					<AdbIcon sx={{display: {xs: 'flex', md: 'none'}, mr: 1}} />
+					<Link href={'/'}>
 						<Typography
 							variant='h5'
 							noWrap
 							sx={{
 								mr: 2,
-								display: {xs: "flex", md: "none"},
+								display: {xs: 'flex', md: 'none'},
 								flexGrow: 1,
-								fontFamily: "monospace",
+								fontFamily: 'monospace',
 								fontWeight: 700,
-								letterSpacing: ".3rem",
-								color: "inherit",
-								textDecoration: "none",
+								letterSpacing: '.3rem',
+								color: 'inherit',
+								textDecoration: 'none'
 							}}
 						>
 							Shopping Next
@@ -60,5 +70,6 @@ async function NavBar() {
 			</Container>
 		</AppBar>
 	);
-}
+});
+NavBar.displayName = 'NavBar';
 export default NavBar;

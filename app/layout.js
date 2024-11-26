@@ -24,11 +24,6 @@ export default function RootLayout({children}) {
 				>
 					<Box sx={{marginBottom: '100px', flex: '1 0 auto', marginBottom: '100px'}}>
 						<NavBar />
-						<Container>
-							<div className='m-20'>
-								{/* <input type='text' placeholder='Search' className='border-2 border-gray-300 p-2 rounded-md' /> */}
-							</div>
-						</Container>
 						<Container maxWidth='xl'>{children}</Container>
 					</Box>
 					<Box sx={{flexShrink: 0}}>
