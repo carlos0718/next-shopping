@@ -56,7 +56,6 @@ export const fetchPreferences = async (items) => {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json",
-				"Access-Control-Allow-Origin": "no-cors",
 				Authorization: `Bearer ${process.env.NEXT_PUBLIC_ACCESS_TOKEN_MP}`,
 			},
 			body: JSON.stringify({

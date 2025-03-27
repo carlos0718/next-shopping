@@ -3,9 +3,9 @@ import FormConfirm from "@/app/ui/components/formConfirm";
 
 const Checkout = () => {
 	return (
-		<div>
+		<>
 			<FormConfirm />
-		</div>
+		</>
 	);
 };
 

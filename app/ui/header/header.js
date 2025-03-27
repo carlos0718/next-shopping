@@ -1,3 +1,6 @@
+"use client";
+import React from "react";
+import Link from "next/link";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
@@ -6,10 +9,15 @@ import AdbIcon from "@mui/icons-material/Adb";
 import RenderMenu from "./menu/menu";
 import Categories from "./categories/categoryItem";
 import {getCategories} from "@/app/lib/api";
-import Link from "next/link";
 
-async function NavBar() {
-	const categories = await getCategories();
+function NavBar() {
+	const [categories, setCategories] = React.useState([]);
+
+	React.useEffect(() => {
+		getCategories().then((data) => {
+			setCategories(data);
+		});
+	}, []);
 	return (
 		<AppBar position='static'>
 			<Container maxWidth='xl'>
