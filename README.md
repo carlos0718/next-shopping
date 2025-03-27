@@ -46,6 +46,28 @@ Check [react hook form](https://www.react-hook-form.com/get-started/)
 
 ## API Mercado Pago
 
+Test credentials to buy products:
+
+-   1.- Login MP in-private mode as a seller
+
+*   Seller
+    -   email: TESTUSER1375510699
+    -   password: 2qDrvFA9nC
+
+-   2.- Login MP as a buyer (the app can be in the same browser)
+
+*   Buyer
+    -   email: TESTUSER591918410
+    -   password: 8pVbVtzl8y
+
+-   3.- If the account byer don't have monet use the following card to pay
+
+*   Card
+    -   number: 5031 7557 3453 0604
+    -   expiration date: 11/30
+    -   security code: 123
+    -   type: Mastercard
+
 # Learn More
 
 To learn more about Next.js, take a look at the following resources:
